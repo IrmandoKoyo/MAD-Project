@@ -1,57 +1,61 @@
 import React from 'react';
-import {Text, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, Text, ScrollView, SafeAreaView} from 'react-native';
 
-//Komponen adalah fungsi yg mengembalikan JSX
-const App = () => {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 16,
+    marginTop: 15,
+    marginBottom: 8,
+  },
+  image: {
+    width: 150,
+    height: 150,
+    marginBottom: 20,
+    resizeMode: 'contain',
+  },
+});
+
+const DisplayImages = () => {
+  const base64Image =
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==';
+
   return (
-    //JSX
-    <View>
-      <View style={styles.container}>
-        <Text style={styles.title}>Basic React Native</Text>
-      </View>
-      <View style={styles.redBox} />
-      <View style={styles.greenBox} />
-      <View style={styles.blueBox} />
-    </View>
-    //Mini Exercise
-    //Buatlah 3 buah Kotak menggunakan View warna Red, Green, Blue
-    //Ukuran 100x100 dengan margin 10
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={{alignItems: 'center'}}>
+        <Text style={styles.title}>Belajar Core Component: Image</Text>
+
+        {/* 1. Local Image */}
+        <Text style={styles.label}>1. Local Image</Text>
+        <Image
+          style={styles.image}
+          source={require('./assets/Image/LOGO_UNIVERSITAS_KLABAT.png')}
+        />
+
+        {/* 2. Network Image */}
+        <Text style={styles.label}>2. Network Image</Text>
+        <Image
+          style={styles.image}
+          source={{
+            uri: 'https://raw.githubusercontent.com/IrmandoKoyo/MAD-Project/48bcef6cd9a48fc1c443f346b811d3f1db1550a1/assets/LOGO_UNIVERSITAS_KLABAT.png',
+          }}
+        />
+
+        {/* 3. Base64 Image */}
+        <Text style={styles.label}>3. Base64 Image</Text>
+        <Image style={styles.image} source={{uri: base64Image}} />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
-export default App;
-
-const styles = StyleSheet.create({
-  title: {
-    backgroundColor: 'yellow',
-    color: 'red',
-    fontSize: 30,
-    textAlign: 'center',
-    fontWeight: '600',
-  },
-  container: {
-    backgroundColor: 'blue',
-    borderColor: 'black',
-    borderWidth: 5,
-    padding: 15,
-    margin: 15,
-  },
-  redBox: {
-    backgroundColor: 'red',
-    width: 100,
-    height: 100,
-    margin: 10,
-  },
-  greenBox: {
-    backgroundColor: 'green',
-    width: 100,
-    height: 100,
-    margin: 10,
-  },
-  blueBox: {
-    backgroundColor: 'blue',
-    width: 100,
-    height: 100,
-    margin: 10,
-  },
-});
+export default DisplayImages;
