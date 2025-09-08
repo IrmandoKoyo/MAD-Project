@@ -8,13 +8,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 20,
   },
   label: {
     fontSize: 16,
-    marginTop: 15,
+    marginTop: 10,
+    fontWeight: '600',
+  },
+  value: {
+    fontSize: 16,
     marginBottom: 8,
   },
   image: {
@@ -22,40 +26,45 @@ const styles = StyleSheet.create({
     height: 150,
     marginBottom: 20,
     resizeMode: 'contain',
+    borderRadius: 75,
   },
 });
 
-const DisplayImages = () => {
-  const base64Image =
-    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==';
-
+const Biodata = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={{alignItems: 'center'}}>
-        <Text style={styles.title}>Belajar Core Component: Image</Text>
+        <Text style={styles.title}>BIODATA MAHASISWA</Text>
 
-        {/* 1. Local Image */}
-        <Text style={styles.label}>1. Local Image</Text>
+        {/* Foto Lokal */}
         <Image
           style={styles.image}
-          source={require('./assets/Image/LOGO_UNIVERSITAS_KLABAT.png')}
+          source={require('./assets/Image/profil.jpg')}
         />
 
-        {/* 2. Network Image */}
-        <Text style={styles.label}>2. Network Image</Text>
-        <Image
-          style={styles.image}
-          source={{
-            uri: 'https://raw.githubusercontent.com/IrmandoKoyo/MAD-Project/48bcef6cd9a48fc1c443f346b811d3f1db1550a1/assets/LOGO_UNIVERSITAS_KLABAT.png',
-          }}
-        />
+        {/* Data Diri */}
+        <Text style={styles.label}>Nama:</Text>
+        <Text style={styles.value}>Irmando Koyo</Text>
 
-        {/* 3. Base64 Image */}
-        <Text style={styles.label}>3. Base64 Image</Text>
-        <Image style={styles.image} source={{uri: base64Image}} />
+        <Text style={styles.label}>NIM:</Text>
+        <Text style={styles.value}>105012210029</Text>
+
+        <Text style={styles.label}>Fakultas:</Text>
+        <Text style={styles.value}>Computer Science</Text>
+
+        <Text style={styles.label}>Program Studi:</Text>
+        <Text style={styles.value}>Information Systems</Text>
+
+        <Text style={styles.label}>Semester:</Text>
+        <Text style={styles.value}>5</Text>
+
+        <Text style={styles.label}>....</Text>
+        <Text style={styles.value}>
+          "Remember the Sabbath day, and keep it holy."
+        </Text>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default DisplayImages;
+export default Biodata;
