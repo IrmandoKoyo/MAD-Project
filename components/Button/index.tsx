@@ -3,7 +3,7 @@ import {TouchableOpacity, StyleSheet, Text} from 'react-native';
 
 const Button = ({label, color = 'orange', colorText = 'black'}) => {
   return (
-    <TouchableOpacity style={styles.button(color)} activeOpacity={0.5}>
+    <TouchableOpacity style={styles.button(color)} activeOpacity={0.7}>
       <Text style={styles.buttonText(colorText)}>{label}</Text>
     </TouchableOpacity>
   );
@@ -23,5 +23,6 @@ const styles = StyleSheet.create({
   buttonText: colorText => ({
     color: colorText,
     fontSize: 16,
+    fontWeight: 'bold',
   }),
 });
